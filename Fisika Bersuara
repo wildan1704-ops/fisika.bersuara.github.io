@@ -1,0 +1,289 @@
+# Update HTML untuk menambahkan:
+
+# 1. Kuis interaktif langsung di website
+
+# 2. Simulasi visual sederhana (animasi gelombang)
+
+# 3. Audio ilustrasi (frekuensi tinggi dan rendah)
+
+
+
+enhanced_html = """
+
+<!DOCTYPE html>
+
+<html lang="id">
+
+<head>
+
+  <meta charset="UTF-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Fisika Bersuara: Dari Telinga ke Logika</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+
+    * {
+
+      margin: 0;
+
+      padding: 0;
+
+      box-sizing: border-box;
+
+      font-family: 'Inter', sans-serif;
+
+    }
+
+    body {
+
+      background-color: #f0f4f8;
+
+      color: #333;
+
+      line-height: 1.6;
+
+    }
+
+    header {
+
+      background-color: #6b4eff;
+
+      color: white;
+
+      padding: 20px 0;
+
+      text-align: center;
+
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+
+    }
+
+    nav a {
+
+      color: white;
+
+      margin: 0 15px;
+
+      text-decoration: none;
+
+      font-weight: 600;
+
+    }
+
+    main {
+
+      padding: 40px 20px;
+
+      max-width: 960px;
+
+      margin: auto;
+
+      background: white;
+
+      border-radius: 10px;
+
+      box-shadow: 0 0 20px rgba(0,0,0,0.05);
+
+    }
+
+    section {
+
+      margin-bottom: 40px;
+
+    }
+
+    .card {
+
+      background: #e8e7fc;
+
+      padding: 20px;
+
+      border-radius: 12px;
+
+      margin-top: 15px;
+
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+
+    }
+
+    .wave {
+
+      height: 60px;
+
+      background: linear-gradient(135deg, #6b4eff, #b388ff);
+
+      animation: wave 2s infinite ease-in-out;
+
+    }
+
+    @keyframes wave {
+
+      0%, 100% { transform: scaleY(1); }
+
+      50% { transform: scaleY(0.5); }
+
+    }
+
+    .quiz input[type="radio"] {
+
+      margin-right: 10px;
+
+    }
+
+    footer {
+
+      background-color: #4d3db0;
+
+      color: white;
+
+      text-align: center;
+
+      padding: 15px 0;
+
+      margin-top: 40px;
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <header>
+
+    <h1>Fisika Bersuara</h1>
+
+    <p>Dari Telinga ke Logika</p>
+
+    <nav>
+
+      <a href="#materi">Materi</a>
+
+      <a href="#simulasi">Simulasi</a>
+
+      <a href="#kuis">Kuis</a>
+
+      <a href="#tentang">Tentang</a>
+
+    </nav>
+
+  </header>
+
+  <main>
+
+    <section id="materi">
+
+      <h2>📚 Materi: Gelombang Bunyi</h2>
+
+      <div class="card">
+
+        <h3>Apa Itu Gelombang Bunyi?</h3>
+
+        <p>Gelombang bunyi adalah gelombang longitudinal yang merambat melalui medium seperti udara, air, atau benda padat akibat getaran partikel-partikel medium tersebut.</p>
+
+      </div>
+
+    </section>
+
+    <section id="simulasi">
+
+      <h2>🔊 Simulasi Visual Gelombang Bunyi</h2>
+
+      <div class="card">
+
+        <div class="wave"></div>
+
+        <p>Simulasi animasi gelombang bunyi bergerak. Panjang dan tinggi gelombang menggambarkan frekuensi dan amplitudo suara.</p>
+
+        <h4>🔈 Audio Ilustrasi</h4>
+
+        <ul>
+
+          <li>Frekuensi Rendah: <audio controls src="https://actions.google.com/sounds/v1/alarms/bugle_tune.ogg"></audio></li>
+
+          <li>Frekuensi Tinggi: <audio controls src="https://actions.google.com/sounds/v1/alarms/beep_short.ogg"></audio></li>
+
+        </ul>
+
+      </div>
+
+    </section>
+
+    <section id="kuis">
+
+      <h2>📝 Kuis Interaktif</h2>
+
+      <div class="card quiz">
+
+        <p><strong>1. Apa yang dimaksud dengan gelombang bunyi?</strong></p>
+
+        <label><input type="radio" name="q1" value="a">Gelombang transversal di ruang hampa</label><br>
+
+        <label><input type="radio" name="q1" value="b">Gelombang longitudinal yang memerlukan medium</label><br>
+
+        <label><input type="radio" name="q1" value="c">Gelombang elektromagnetik</label><br><br>
+
+        <button onclick="checkQuiz()">Periksa Jawaban</button>
+
+        <p id="quizResult"></p>
+
+      </div>
+
+    </section>
+
+    <section id="tentang">
+
+      <h2>👨‍🏫 Tentang Website Ini</h2>
+
+      <p><strong>Fisika Bersuara</strong> dikembangkan oleh Sherlynggar Anugrah Dkk sebagai media edukasi berbasis web untuk membantu siswa SMA memahami konsep gelombang bunyi secara visual dan interaktif.</p>
+
+    </section>
+
+  </main>
+
+  <footer>
+
+    <p>&copy; 2025 Fisika Bersuara. Dikembangkan oleh Sherlynggar Anugrah.</p>
+
+  </footer>
+
+  <script>
+
+    function checkQuiz() {
+
+      const answer = document.querySelector('input[name="q1"]:checked');
+
+      const result = document.getElementById("quizResult");
+
+      if (!answer) {
+
+        result.textContent = "❗ Silakan pilih jawaban terlebih dahulu.";
+
+        result.style.color = "red";
+
+      } else if (answer.value === "b") {
+
+        result.textContent = "✅ Benar! Gelombang bunyi adalah gelombang longitudinal yang memerlukan medium.";
+
+        result.style.color = "green";
+
+      } else {
+
+        result.textContent = "❌ Salah. Coba lagi!";
+
+        result.style.color = "red";
+
+      }
+
+    }
+
+  </script>
+
+</body>
+
+</html>
